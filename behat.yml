@@ -1,0 +1,21 @@
+default:
+  formatters:
+    progress: true
+  suites:
+    demo:
+      contexts:
+        - Malvor\Bundle\DemoBundle\Features\Context\FeatureContext
+        - behatch:context:json
+        - behatch:context:rest
+  extensions:
+    Behat\Symfony2Extension:
+      kernel:
+        env: test
+        debug: true
+        class: Malvor\Bundle\DemoBundle\Features\Fixtures\AppKernel
+    Behat\MinkExtension:
+      base_url: 'http://www.acme.dev/app_test.php/'
+      sessions:
+        default:
+          symfony2: ~
+    Behatch\Extension: ~
